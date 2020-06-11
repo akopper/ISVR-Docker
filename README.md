@@ -1,17 +1,11 @@
-# ISVR-Docker
-IdeaSpaceVR Docker Container
+# IdeaSpaceVR-Docker
+IdeaSpaceVR Docker Container based on the excellent php7.4 docker image. 
 
-## Build
-```
-docker build -t qxip/isvr .
-```
+This image does not include a mysql database. You need to have a mysql datbase already running with user and database prepared for this installation.
 
-#### Persistent Setup
-- Download the [latest](https://www.ideaspacevr.org/download) IdeaSpace and uncompress
-- Create a blank directory for the DB (ie: `./db`)
-- Execute Container using local Mapping
+## Build and Run
+
+Modify `docker-compose.yml` to fit your setup. 
 ```
-docker run -i -t -p "8080:80" -d -v ${PWD}/IdeaSpace-1.1.4:/app -v ${PWD}/db:/var/lib/mysql qxip/isvr
+docker-compose build && docker-compose up 
 ```
-- Note the MySQL admin password
-- Complete the setup
