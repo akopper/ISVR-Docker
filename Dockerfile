@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.2-apache
 
 ARG ideaspacevr_version=1.2.2
 ARG upload_max_filesize=1G
