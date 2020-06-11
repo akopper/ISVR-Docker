@@ -18,4 +18,4 @@ services:
 networks:
   database_network:
     external:
-      name: mysql_default
+      name: database_network
