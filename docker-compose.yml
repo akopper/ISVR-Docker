@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    ideaspacevr:
+        container_name: ideaspacevr
+        image: ideaspacevr
+        build:
+            context: "./"
+            dockerfile: Dockerfile
+            args:
+                ideaspacevr_version: "1.2.2"
+        ports:
+         - 4832:80
+        networks:
+          - database_network
+
+
+networks:
+  database_network:
+    external:
+      name: mysql_default
