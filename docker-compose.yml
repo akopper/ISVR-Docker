@@ -3,14 +3,20 @@ version: '3'
 services:
     ideaspacevr:
         container_name: ideaspacevr
-        image: ideaspacevr
+        image: knospi/ideaspacevr
         build:
             context: "./"
             dockerfile: Dockerfile
             args:
                 ideaspacevr_version: "1.2.2"
+                PROXY_ROOT_URL: ""
         ports:
          - 4832:80
+        volumes:
+#          - "./database.php:/var/www/html/config/database.php"
+          - "./assets/user/:/var/www/html/public/assets/user/"
+        environment:
+          - PROXY_SCHEMA=http
         networks:
           - database_network
 
@@ -18,4 +24,4 @@ services:
 networks:
   database_network:
     external:
-      name: database_network
+      name: mysql_default
