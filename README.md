@@ -9,3 +9,9 @@ Modify `docker-compose.yml` to fit your setup.
 ```
 docker-compose build && docker-compose up 
 ```
+Complete the setup.
+Then copy the database.php file onto your host.
+```
+docker cp ideaspacevr:/var/www/html/config/database.php ./
+```
+Restart the container with the mounted `database.php`.
