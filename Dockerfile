@@ -31,7 +31,10 @@ RUN echo "installing IdeaspaceVR version ${ideaspacevr_version}" \
     && mv IdeaSpace-${ideaspacevr_version}/* $install_dir/ \
     && mv IdeaSpace-${ideaspacevr_version}/.htaccess $install_dir/
 
+RUN echo "Patching to support reverse proxies"
+COPY routes.php.patch $install_dir/
+RUN cat $install_dir/routes.php.patch >> $install_dir/app/Http/routes.php
+
 RUN chown -R www-data /var/www/
 RUN chmod -R 777 /var/www/
 
-#VOLUME $install_dir/storage/app/
