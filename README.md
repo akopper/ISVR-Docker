@@ -14,4 +14,4 @@ Then copy the database.php file onto your host.
 ```
 docker cp ideaspacevr:/var/www/html/config/database.php ./
 ```
-Restart the container with the mounted `database.php`.
+Restart the container with the mounted `database.php` by uncommenting the appropriate line in docker-compose under volumes.
